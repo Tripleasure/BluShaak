@@ -1,3 +1,4 @@
+import 'package:blushaakk/join/nonphone.dart';
 import 'package:blushaakk/utils/colorList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -85,28 +86,41 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
               ],
             ),
             Positioned(
-              right: 0,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0), // 둥근 모서리의 반지름
+                right: 0,
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(
+                            color: isButtonEnabled
+                                ? Colors.transparent
+                                : Colors.grey,
+                          ),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.disabled)) {
+                            return ColorList.primary
+                                .withOpacity(0.5); // Disabled background color
+                          }
+                          return ColorList.primary; // Regular background color
+                        },
+                      ),
                     ),
-                  ),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(ColorList.primary),
-                ),
-                onPressed: isButtonEnabled
-                    ? () {
-                        setState(() {
-                          showNewTextField = true;
-                        });
-                        print("인증 요청");
-                      }
-                    : null,
-                child: const Text("인증 요청"),
-              ),
-            ),
+                    onPressed: isButtonEnabled
+                        ? () {
+                            setState(() {
+                              showNewTextField = true;
+                            });
+                            print("인증 요청");
+                          }
+                        : null, // null을 설정하여 버튼을 비활성화
+                    child: const Text(
+                      "인증 요청",
+                      style: TextStyle(color: Colors.white),
+                    ))),
           ],
         ),
         if (showNewTextField)
@@ -119,13 +133,23 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                   labelText: '인증번호 입력',
                 ),
               ),
-              Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    '인증번호가 오지 않아요!',
-                    style: TextStyle(color: Colors.red),
-                  ))
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NonPhone(),
+                    ),
+                  );
+                },
+                child: Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      '인증번호가 오지 않아요!',
+                      style: TextStyle(color: Colors.red),
+                    )),
+              )
             ],
           ),
       ],
