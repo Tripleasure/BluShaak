@@ -1,3 +1,4 @@
+import 'package:blushaakk/home/stamp.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,6 +9,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<void> _showMyDialog(BuildContext context) async {
+    height:
+    MediaQuery.of(context).size.height;
+    width:
+    MediaQuery.of(context).size.width;
+
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20), // 둥글게 만들고 싶은 반경 값
+          ),
+          content: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.8, // 조정하고 싶은 너비
+            height: 200, // 조정하고 싶은 높이
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Image.asset('assets/images/barcode2.png')),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   List<String> names = ['샥 라떼', '피넛 라떼', '아메리카노', '카페 라떼', '바닐라 빈 라떼'];
   @override
   Widget build(BuildContext context) {
@@ -51,7 +83,9 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.white,
                                 )),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                _showMyDialog(context);
+                              },
                               child: Container(
                                 child: Image.asset(
                                   'assets/images/barcode.png',
@@ -66,39 +100,49 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text.rich(
-                          TextSpan(
-                            text: '앞으로 ', // default style
-                            style: TextStyle(color: Colors.white),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '8개',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: '만 모으면 쿠폰이 생겨요!'),
-                              TextSpan(
-                                  text: ' >',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20)),
-                            ],
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Stamp(),
                           ),
-                        ),
-                        Text.rich(
-                          TextSpan(
-                            // default style
-                            style: TextStyle(color: Colors.white),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '2', style: TextStyle(fontSize: 20)),
-                              TextSpan(text: '/10'),
-                            ],
+                        );
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text.rich(
+                            TextSpan(
+                              text: '앞으로 ', // default style
+                              style: TextStyle(color: Colors.white),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: '8개',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: '만 모으면 쿠폰이 생겨요!'),
+                                TextSpan(
+                                    text: ' >',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20)),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          Text.rich(
+                            TextSpan(
+                              // default style
+                              style: TextStyle(color: Colors.white),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: '2', style: TextStyle(fontSize: 20)),
+                                TextSpan(text: '/10'),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
