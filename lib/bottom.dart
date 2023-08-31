@@ -1,4 +1,7 @@
+import 'package:blushaakk/gift/gift.dart';
+import 'package:blushaakk/home/around.dart';
 import 'package:blushaakk/home/home.dart';
+import 'package:blushaakk/home/mark.dart';
 import 'package:blushaakk/home/recent.dart';
 import 'package:blushaakk/order/order.dart';
 import 'package:blushaakk/utils/colorList.dart';
@@ -32,8 +35,8 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
   final List<Widget> _pages = [
     const HomePage(),
     const OrderPage(),
-    const Center(child: Text('Bookmark')),
-    const Center(child: Text('Profile')),
+    Container(),
+    const GiftPage(),
     const Center(child: Text('More')),
   ];
 
@@ -171,34 +174,57 @@ class CustomTooltip extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/order2.png',
-                      scale: 2.5,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Around(),
                     ),
-                    const Text(
-                      '내 주변',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+                  );
+                  showOverlay();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/images/order2.png',
+                        scale: 2.5,
+                      ),
+                      const Text(
+                        '내 주변',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/order3.png',
-                      scale: 2.5,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MarkPage(),
                     ),
-                    const Text(
-                      '즐겨찾기',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+                  );
+
+                  showOverlay();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/images/order3.png',
+                        scale: 2.5,
+                      ),
+                      const Text(
+                        '즐겨찾기',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
