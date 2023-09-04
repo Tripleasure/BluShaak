@@ -1,3 +1,4 @@
+import 'package:blushaakk/order/order2.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colorList.dart';
@@ -78,17 +79,27 @@ class _AroundState extends State<Around> {
                               ),
                             ),
                           ),
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: ColorList.primary,
-                                borderRadius: BorderRadius.circular(30),
-                                border: Border.all(color: ColorList.primary)),
-                            child: const Text(
-                              '주문하기',
-                              style: TextStyle(color: Colors.white),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Order2Page(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  color: ColorList.primary,
+                                  borderRadius: BorderRadius.circular(30),
+                                  border: Border.all(color: ColorList.primary)),
+                              child: const Text(
+                                '주문하기',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           )
                         ],
@@ -160,17 +171,27 @@ class _AroundState extends State<Around> {
                               ),
                             ),
                           ),
-                          Container(
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: ColorList.primary,
-                                borderRadius: BorderRadius.circular(30),
-                                border: Border.all(color: ColorList.primary)),
-                            child: const Text(
-                              '주문하기',
-                              style: TextStyle(color: Colors.white),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Order2Page(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  color: ColorList.primary,
+                                  borderRadius: BorderRadius.circular(30),
+                                  border: Border.all(color: ColorList.primary)),
+                              child: const Text(
+                                '주문하기',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           )
                         ],

@@ -13,7 +13,7 @@ class Join1 extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Container(
+        child:                Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

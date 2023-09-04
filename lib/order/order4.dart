@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../bottom.dart';
 import '../utils/colorList.dart';
 
-class CartPage extends StatefulWidget {
-  const CartPage({super.key});
+class Order4Page extends StatefulWidget {
+  const Order4Page({super.key});
 
   @override
-  State<CartPage> createState() => _CartPageState();
+  State<Order4Page> createState() => _Order4PageState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _Order4PageState extends State<Order4Page> {
   List<Map<String, dynamic>> items = [
     {
       'name': '샥 라떼',
@@ -346,7 +346,7 @@ class _CartPageState extends State<CartPage> {
                           color: ColorList.primary,
                         ),
                         child: const Text(
-                          '선물하기',
+                          '주문하기',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
@@ -592,7 +592,7 @@ class _CartPageState extends State<CartPage> {
                 color: ColorList.primary,
               ),
               child: const Text(
-                '선물하기',
+                '주문하기',
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),

@@ -65,7 +65,7 @@ class Stamp extends StatelessWidget {
                           style: TextStyle(
                               color: ColorList.primary,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                              fontSize: 18),
                         ),
                         const Icon(
                           Icons.arrow_forward_ios,
@@ -93,7 +93,7 @@ class Stamp extends StatelessWidget {
                           style: TextStyle(
                               color: ColorList.primary,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                              fontSize: 18),
                         ),
                         const Icon(
                           Icons.arrow_forward_ios,
@@ -108,7 +108,7 @@ class Stamp extends StatelessWidget {
               Center(
                 child: Row(
                   children: List.generate(
-                      70,
+                      60,
                       (index) => index.isEven
                           ? Container(width: 5, height: 1, color: Colors.black)
                           : const SizedBox(width: 5)),

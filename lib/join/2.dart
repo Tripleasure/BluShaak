@@ -1,4 +1,3 @@
-import 'package:blushaakk/home/home.dart';
 import 'package:blushaakk/join/phone.dart';
 import 'package:blushaakk/utils/colorList.dart';
 import 'package:flutter/material.dart';
@@ -512,7 +511,7 @@ class _Join2State extends State<Join2> {
               showBottomSheetWithCheckbox(context);
             },
             child: Container(
-              margin: const EdgeInsets.only(bottom: 10),
+              margin: const EdgeInsets.only(bottom: 30),
               alignment: Alignment.center,
               width: width * 0.9,
               height: 60,

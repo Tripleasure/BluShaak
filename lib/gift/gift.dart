@@ -1,3 +1,4 @@
+import 'package:blushaakk/gift/cart.dart';
 import 'package:blushaakk/gift/menus.dart';
 import 'package:flutter/material.dart';
 
@@ -28,21 +29,31 @@ class _GiftPageState extends State<GiftPage> {
         centerTitle: true,
         backgroundColor: Colors.white,
         leading: null,
-        actions: const [
-          Icon(
-            Icons.shopping_cart_outlined,
-            color: Colors.black,
-            size: 30,
+        actions: [
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CartPage(),
+                ),
+              );
+            },
+            child: const Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.black,
+              size: 30,
+            ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Icon(
+          const Icon(
             Icons.redeem,
             color: Colors.black,
             size: 30,
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           )
         ],

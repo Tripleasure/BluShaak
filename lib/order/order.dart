@@ -105,7 +105,8 @@ class _OrderPageState extends State<OrderPage> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      margin: const EdgeInsets.all(10.0),
+                      margin: const EdgeInsets.only(
+                          top: 12, bottom: 12, left: 4, right: 4),
                       height: 50,
                       width: 70,
                       decoration: BoxDecoration(

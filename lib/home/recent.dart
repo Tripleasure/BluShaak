@@ -1,9 +1,15 @@
 import 'package:blushaakk/utils/colorList.dart';
 import 'package:flutter/material.dart';
 
-class RecentPage extends StatelessWidget {
+class RecentPage extends StatefulWidget {
   const RecentPage({Key? key}) : super(key: key);
 
+  @override
+  State<RecentPage> createState() => _RecentPageState();
+}
+
+class _RecentPageState extends State<RecentPage> {
+  bool a = false;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -64,9 +70,45 @@ class RecentPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Image.asset(
-                'assets/images/recent.png',
-                scale: 2,
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: SizedBox(
+                  width: width,
+                  child: Column(
+                    children: [
+                      a == false
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  a = !a;
+                                });
+                              },
+                              child: Image.asset(
+                                'assets/images/magok.png',
+                                scale: 2,
+                              ),
+                            )
+                          : InkWell(
+                              onTap: () {
+                                setState(() {
+                                  a = !a;
+                                });
+                              },
+                              child: Image.asset(
+                                'assets/images/magok3.png',
+                                scale: 2,
+                              ),
+                            ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Image.asset(
+                        'assets/images/recent.png',
+                        scale: 2,
+                      ),
+                    ],
+                  ),
+                ),
               )
             ],
           ),

@@ -1,20 +1,20 @@
 import 'package:blushaakk/gift/cart.dart';
-import 'package:blushaakk/gift/detail.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colorList.dart';
+import 'order3.dart';
 
-class MenusPage extends StatefulWidget {
-  const MenusPage({super.key});
+class Order2Page extends StatefulWidget {
+  const Order2Page({super.key});
 
   @override
-  State<MenusPage> createState() => _MenusPageState();
+  State<Order2Page> createState() => _Order2PageState();
 }
 
 List<String> names2 = ['Coffee', 'Baverage', 'Blended', 'Bakery', 'Ice-cream'];
 int selectedIndex = -1;
 
-class _MenusPageState extends State<MenusPage> {
+class _Order2PageState extends State<Order2Page> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -143,7 +143,7 @@ class _MenusPageState extends State<MenusPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DetailPage(),
+                      builder: (context) => const Order3Page(),
                     ),
                   );
                 },
